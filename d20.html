@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Model Viewer with Audio & Text</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="<model-viewer> template" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link type="text/css" href="./styles.css" rel="stylesheet" />
+
+    <script>
+      const listItem = {
+        "hotspot-1": {
+          heading: "Cloud based software",
+          items: [
+            "Cloud based remote review",
+            "Tele reporting",
+            "Unlimited cloud storage",
+            "Seamless collaboration between doctors across geographies",
+          ],
+        },
+        "hotspot-2": {
+          heading: "Affordable solution",
+          items: [
+            "No additional capex for slides and oil.",
+            "Compatible with all Romanowsky stain.",
+            "90%+ sensitivity & specificity",
+          ],
+        },
+        "hotspot-3": {
+          heading: "One device, multiple tests",
+          items: [
+            "Can digitalize Peripheral smear and Urine sample.",
+            "AI based automated morphology analysis for WBC, RBC and platelets",
+            "AI based detection and classification of objects in abnormal urine samples",
+          ],
+        },
+        "hotspot-4": {
+          heading: "Robust instrument",
+          items: [
+            "Ease of setup",
+            "Completely AI driven",
+            "AI based self-maintenance",
+            "Contains a full powered compute system",
+          ],
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <div id="loader-container">
+      <img src="./thumbnail/D20.webp" width="25%" alt="" srcset="" />
+      <div id="loader-text">Loading... 0%</div>
+      <div id="progress-bar">
+        <div id="progress-fill"></div>
+      </div>
+    </div>
+
+    <!-- Hidden audio player -->
+    <div id="info-box"><span id="info-text"></span></div>
+
+    <audio id="hotspot-audio" hidden></audio>
+
+    <model-viewer
+      id="modelViewer"
+      src="./model/d20_version03.glb"
+      ar
+      ar-modes="webxr scene-viewer quick-look"
+      camera-controls
+      tone-mapping="neutral"
+      poster="./thumbnail/D20.webp"
+      shadow-intensity="2"
+      shadow-softness="0.83"
+      exposure="1"
+      environment-image="./thumbnail/photo_studio_broadway_hall_4k.hdr"
+    >
+      <div id="usbDriver" class="mainsdivstyle">
+        <p class="close-btn">
+          <img src="https://img.icons8.com/color/512/delete-sign.png" />
+        </p>
+        <h2 class="cardTitle"></h2>
+        <div id="textTitle" class="panel-heading"></div>
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+      <button
+        class="Hotspot"
+        slot="hotspot-1"
+        data-position="0.04877111012219077m 0.09928679264802369m 0.05371853435352494m"
+        data-normal="0m 0m 1m"
+        data-visibility-attribute="visible"
+        data-audio="./audio/D20-2.mp3"
+      >
+        <div class="HotspotAnnotation">Cloud based software</div></button
+      ><button
+        class="Hotspot"
+        slot="hotspot-2"
+        data-position="0.049211724414884486m 0.07485202208437418m 0.05371853435352494m"
+        data-normal="0m 0m 1m"
+        data-visibility-attribute="visible"
+        data-audio="./audio/D20-3.mp3"
+      >
+        <div class="HotspotAnnotation">Affordable solution</div></button
+      ><button
+        class="Hotspot"
+        slot="hotspot-3"
+        data-position="0.04929605325245504m 0.05194572587924484m 0.05371853435352494m"
+        data-normal="0m 0m 1m"
+        data-visibility-attribute="visible"
+        data-audio="./audio/D20-1.mp3"
+      >
+        <div class="HotspotAnnotation">One device, multiple tests</div></button
+      ><button
+        class="Hotspot"
+        slot="hotspot-4"
+        data-position="0.048853325018545724m 0.027612181089687483m 0.05371853435352494m"
+        data-normal="0m 0m 1m"
+        data-visibility-attribute="visible"
+        data-audio="./audio/D20-4.mp3"
+      >
+        <div class="HotspotAnnotation">Robust instrument</div>
+      </button>
+      <div class="progress-bar hide" slot="progress-bar">
+        <div class="update-bar"></div>
+      </div>
+      <button slot="ar-button" id="ar-button">View in your space</button>
+      <div id="ar-prompt">
+        <img src="ar_hand_prompt.png" />
+      </div>
+    </model-viewer>
+
+    <button class="refreshBtn" onclick="resetModel();">
+      <img src="https://cdn-icons-png.flaticon.com/512/2546/2546705.png" />
+    </button>
+
+    <button class="audioBtn" id="muteAudioBtn">🔈</button>
+
+    <script src="./script.js"></script>
+    <script
+      type="module"
+      src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"
+    ></script>
+  </body>
+</html>

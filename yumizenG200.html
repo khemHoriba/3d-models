@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Model Viewer with Audio & Text</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="<model-viewer> template" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link type="text/css" href="./styles.css" rel="stylesheet" />
+
+    <script>
+      const listItem = {
+        "hotspot-1": {
+          heading: "Tube Holder",
+          items: [
+            "Specimen Volume CBC+CRP 18 µl",
+            "Secure Sample Placement",
+            "Minimizes Contamination",
+          ],
+        },
+        "hotspot-2": {
+          heading: "Frontal USB Port",
+          items: [
+            "Patient and QC result Archive",
+            "Settings Archive",
+            "Upload of QC target values on to the analyzer",
+          ],
+        },
+        "hotspot-3": {
+          heading: "Built-in Reagents",
+          items: [
+            "Ready to use Instant CRP reagent",
+            "Space Saving Design",
+            "Improved Safety-Minimizes exposure of lab personnel",
+          ],
+        },
+        "hotspot-4": {
+          heading: "Integrated Printer",
+          items: [
+            "Built-in thermal printer",
+            "Virtual Keyboard",
+            "Instant Result Printing",
+            "Improved Workflow Efficiency",
+          ],
+        },
+      };
+    </script>
+  </head>
+
+  <body>
+    <div id="loader-container">
+      <img src="./thumbnail/yumizenG200.jpg" width="25%" alt="" srcset="" />
+      <div id="loader-text">Loading... 0%</div>
+      <div id="progress-bar">
+        <div id="progress-fill"></div>
+      </div>
+    </div>
+
+    <div id="info-box"><span id="info-text"></span></div>
+
+    <audio id="hotspot-audio" hidden></audio>
+
+    <model-viewer
+      id="modelViewer"
+      src="./model/Yumizen_G200_version01.glb"
+      ar
+      ar-modes="webxr scene-viewer quick-look"
+      camera-controls
+      tone-mapping="neutral"
+      poster="/poster.webp"
+      shadow-intensity="1"
+      exposure="1"
+      shadow-softness="0.87"
+      environment-image="./thumbnail/photo_studio_broadway_hall_4k.hdr"
+    >
+      <div id="usbDriver" class="mainsdivstyle">
+        <p class="close-btn">
+          <img src="https://img.icons8.com/color/512/delete-sign.png" />
+        </p>
+
+        <h2 class="cardTitle">Frontal USB Port</h2>
+        <ul>
+          <li>Patient and QC result Archive</li>
+          <li>Settings Archive</li>
+          <li>Upload of QC target values on to the analyzer</li>
+        </ul>
+      </div>
+
+      <!-- <div>
+        <button
+          class="Hotspot"
+          slot="hotspot-1"
+          data-position="0.018493483806736096m 0.03234358198323336m 0.043063444303483966m"
+          data-normal="0.0000056991014128569464m -0.00009939338300096085m 0.9999999950442379m"
+          data-visibility-attribute="visible"
+          data-audio="./audio/Tube_Holder.mp3"
+        >
+          <div class="HotspotAnnotation">Tube Holder</div>
+        </button>
+
+        <button
+          class="Hotspot"
+          slot="hotspot-2"
+          data-position="-0.012906250569758675m 0.009018368674143185m 0.04325363536672153m"
+          data-normal="-0.00009066809383091425m -0.000842110969128431m 0.9999996413141419m"
+          data-visibility-attribute="visible"
+          data-audio="audio/Frontal_USB_Port.mp3"
+        >
+          <div class="HotspotAnnotation">Frontal USB Port</div>
+        </button>
+
+        <button
+          class="Hotspot"
+          slot="hotspot-3"
+          data-position="0.029969698712906997m 0.05425211021342745m 0.011910050321797823m"
+          data-normal="1m 0m 0m"
+          data-visibility-attribute="visible"
+          data-audio="audio/Built_in_Reagents.mp3"
+        >
+          <div class="HotspotAnnotation">Built-in Reagents</div>
+        </button>
+
+        <button
+          class="Hotspot"
+          slot="hotspot-4"
+          data-position="-0.020320365162830978m 0.12064534385177454m 0.01581183919788684m"
+          data-normal="0m 1m 0m"
+          data-visibility-attribute="visible"
+          data-audio="audio/Integrated_Printer.mp3"
+        >
+          <div class="HotspotAnnotation">Integrated Printer</div>
+        </button>
+      </div> -->
+
+      <div class="progress-bar hide" slot="progress-bar">
+        <div class="update-bar"></div>
+      </div>
+
+      <button slot="ar-button" id="ar-button">View in your space</button>
+
+      <div id="ar-prompt">
+        <img src="/ar_hand_prompt.png" />
+      </div>
+    </model-viewer>
+
+    <button class="refreshBtn" onclick="resetModel();">
+      <img src="https://cdn-icons-png.flaticon.com/512/2546/2546705.png" />
+    </button>
+
+    <button class="audioBtn" id="muteAudioBtn">🔈</button>
+
+    <script src="./script.js"></script>
+    <script
+      type="module"
+      src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"
+    ></script>
+  </body>
+</html>

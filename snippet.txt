@@ -1,0 +1,20 @@
+<model-viewer src="microsemi_crp_lc767_version04.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1.66" exposure="0.85" shadow-softness="0.87">
+    <button class="Hotspot" slot="hotspot-1" data-position="0.018493483806736096m 0.03234358198323336m 0.043063444303483966m" data-normal="0.0000056991014128569464m -0.00009939338300096085m 0.9999999950442379m" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">Tube Holder</div>
+    </button><button class="Hotspot" slot="hotspot-2" data-position="-0.012906250569758675m 0.009018368674143185m 0.04325363536672153m" data-normal="-0.00009066809383091425m -0.000842110969128431m 0.9999996413141419m" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">Frontal USB Port</div>
+    </button><button class="Hotspot" slot="hotspot-3" data-position="0.029969698712906997m 0.05425211021342745m 0.011910050321797823m" data-normal="1m 0m 0m" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">Built-in Reagents</div>
+    </button><button class="Hotspot" slot="hotspot-5" data-position="-0.020320365162830978m 0.12064534385177454m 0.01581183919788684m" data-normal="0m 1m 0m" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">Integrated Printer</div>
+    </button>
+    <div class="progress-bar hide" slot="progress-bar">
+        <div class="update-bar"></div>
+    </div>
+    <button slot="ar-button" id="ar-button">
+        View in your space
+    </button>
+    <div id="ar-prompt">
+        <img src="https://modelviewer.dev/shared-assets/icons/hand.png">
+    </div>
+</model-viewer>
