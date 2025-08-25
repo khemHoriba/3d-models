@@ -74,6 +74,10 @@ window.addEventListener("DOMContentLoaded", () => {
   modelViewer.addEventListener("load", () => {
     loaderText.textContent = `Loading... 100%`;
     loaderContainer.style.display = "none"; // Hide loader
+
+    initialOrbit = modelViewer.cameraOrbit;
+    initialTarget = modelViewer.cameraTarget;
+
     modelViewer.dismissPoster(); // Show model
   });
 
@@ -101,22 +105,43 @@ document.querySelector(".close-btn").addEventListener("click", function () {
 });
 
 // resetModel
+// function resetModel() {
+//   const modelViewer = document.getElementById("modelViewer");
+
+//   // Reset rotation and camera
+//   modelViewer.resetTurntableRotation();
+//   modelViewer.cameraOrbit = "0deg 55deg 90deg";
+//   modelViewer.cameraTarget = "0m 0m 0m";
+
+//   // Reset animation and interaction
+//   modelViewer.pause();
+//   modelViewer.currentTime = 0;
+
+//   // Hide your info panel if open
+//   document.querySelector(".mainsdivstyle").style.display = "none";
+
+//   // Reset hotspots audio if playing
+//   const audioPlayer = document.getElementById("hotspot-audio");
+//   audioPlayer.pause();
+//   audioPlayer.currentTime = 0;
+// }
+
 function resetModel() {
   const modelViewer = document.getElementById("modelViewer");
 
-  // Reset rotation and camera
+  // Reset rotation & camera to initial values
   modelViewer.resetTurntableRotation();
-  modelViewer.cameraOrbit = "0deg 55deg 90deg";
-  modelViewer.cameraTarget = "0m 0m 0m";
+  modelViewer.cameraOrbit = initialOrbit;
+  modelViewer.cameraTarget = initialTarget;
 
-  // Reset animation and interaction
+  // Reset animation & interaction
   modelViewer.pause();
   modelViewer.currentTime = 0;
 
-  // Hide your info panel if open
+  // Hide info panel if open
   document.querySelector(".mainsdivstyle").style.display = "none";
 
-  // Reset hotspots audio if playing
+  // Reset hotspot audio
   const audioPlayer = document.getElementById("hotspot-audio");
   audioPlayer.pause();
   audioPlayer.currentTime = 0;
