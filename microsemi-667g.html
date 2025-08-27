@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Yumizen H 2550 3D Model</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="<model-viewer> template" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link type="text/css" href="./styles.css" rel="stylesheet" />
+
+    <!-- <script>
+      const listItem = {
+        "hotspot-1": {
+          heading: "Tube Holder",
+          items: [
+            "Specimen Volume CBC+CRP 18 µl",
+            "Secure Sample Placement",
+            "Minimizes Contamination",
+          ],
+        },
+        "hotspot-2": {
+          heading: "Frontal USB Port",
+          items: [
+            "Patient and QC result Archive",
+            "Settings Archive",
+            "Upload of QC target values on to the analyzer",
+          ],
+        },
+        "hotspot-3": {
+          heading: "Built-in Reagents",
+          items: [
+            "Ready to use Instant CRP reagent",
+            "Space Saving Design",
+            "Improved Safety-Minimizes exposure of lab personnel",
+          ],
+        },
+        "hotspot-4": {
+          heading: "Integrated Printer",
+          items: [
+            "Built-in thermal printer",
+            "Virtual Keyboard",
+            "Instant Result Printing",
+            "Improved Workflow Efficiency",
+          ],
+        },
+      };
+    </script> -->
+  </head>
+
+  <body>
+    <div id="loader-container">
+      <img src="./thumbnail/microsemi-667g.png" width="25%" alt="" srcset="" />
+      <div id="loader-text">Loading... 0%</div>
+      <div id="progress-bar">
+        <div id="progress-fill"></div>
+      </div>
+    </div>
+
+    <div id="info-box"><span id="info-text"></span></div>
+
+    <audio id="hotspot-audio" hidden></audio>
+
+    <model-viewer
+      id="modelViewer"
+      src="./model/Microsemi_CRP_LC_667G.glb"
+      ar
+      ar-modes="webxr scene-viewer quick-look"
+      camera-controls
+      tone-mapping="neutral"
+      shadow-intensity="1"
+      exposure="1"
+      shadow-softness="0.87"
+      environment-image="./thumbnail/photo_studio_broadway_hall_4k.hdr"
+    >
+      <div id="usbDriver" class="mainsdivstyle">
+        <p class="close-btn">
+          <img src="https://img.icons8.com/color/512/delete-sign.png" />
+        </p>
+
+        <h2 class="cardTitle">Frontal USB Port</h2>
+        <ul>
+          <li>Patient and QC result Archive</li>
+          <li>Settings Archive</li>
+          <li>Upload of QC target values on to the analyzer</li>
+        </ul>
+      </div>
+
+      <div class="progress-bar hide" slot="progress-bar">
+        <div class="update-bar"></div>
+      </div>
+
+      <button slot="ar-button" id="ar-button">View in your space</button>
+    </model-viewer>
+
+    <button class="refreshBtn" onclick="resetModel();">
+      <img src="https://cdn-icons-png.flaticon.com/512/2546/2546705.png" />
+    </button>
+
+    <button class="audioBtn" id="muteAudioBtn">🔈</button>
+
+    <script src="./script.js"></script>
+    <script
+      type="module"
+      src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"
+    ></script>
+  </body>
+</html>
